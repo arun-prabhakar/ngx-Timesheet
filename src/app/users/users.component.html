@@ -1,0 +1,62 @@
+
+<mat-drawer-container>
+  <!--row-->
+  <div class="row no-gutters" [@animateArea]="">
+    <div class="left_side col-md-3 col-sm-3 col-lg-2">
+        <img class="logo mt-2 ml-4">
+        <mat-nav-list class="menuNav mt-4">
+          <mat-list-item *ngFor="let menu of menuNav">
+              <a matLine routerLinkActive="active" routerLink="/{{menu.link}}">
+                <mat-icon mat-list-icon>{{menu.icon}}</mat-icon> {{menu.name}}
+              </a>
+          </mat-list-item>
+        </mat-nav-list>
+    </div>
+    <div class="col-md-9 col-sm-9 col-lg-10">
+        <div class="row">
+          <div class="col-md-12 ">
+            <div class="row">
+              <mat-toolbar-row>
+                <mat-toolbar>
+                  <!--<span>
+                    <mat-icon mat-button (click)="sidenav.open()" >menu</mat-icon>
+                  </span>-->
+                  <span class="flex_auto">
+                    <h1>Hi, {{loginUsername}}</h1>
+                  </span>
+                  <button class="profile" mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon> face </mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item routerLink="/login">
+                      <mat-icon> build </mat-icon>
+                      <span> Profile </span>
+                    </button>
+                    <button mat-menu-item routerLink="/login">
+                      <mat-icon>exit_to_app</mat-icon>
+                      <span> Change Password </span>
+                    </button>
+                  </mat-menu>
+                  <button class="ml-4 logout_btn" routerLink="/login">
+                    <mat-icon>power_settings_new</mat-icon>
+                  </button>
+                </mat-toolbar>
+              </mat-toolbar-row>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card rounded-0">
+              <div class="card-body pb-0" >
+                <h1>UserManagement</h1>
+                <br>
+                <!---->                            
+              </div>
+              <!--/card-block-->
+            </div>
+          </div>
+         
+        </div>
+        <!--/row-->
+    </div>
+  </div>
+  <!--/row-->
